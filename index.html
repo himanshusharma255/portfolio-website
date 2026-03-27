@@ -44,11 +44,11 @@
 My focus is on full-stack development, where I work with both frontend and backend technologies to build complete web solutions. I constantly learn new tools and technologies to improve my skills and deliver better experiences.</p>
 
                 <div class="tab-titles">
-                    <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
-                    <p class="tab-links" onclick="opentab('Projects')">Projects</p>
-                    <p class="tab-links" onclick="opentab('education')">Education</p>
+                   <p class="tab-links active-link" onclick="opentab(event,'skills')">Skills</p>
+<p class="tab-links" onclick="opentab(event,'projects')">Projects</p>
+<p class="tab-links" onclick="opentab(event,'education')">Education</p>
                 </div>
-<div class="tab-contents active-tab" id="Skills">
+<div class="tab-contents active-tab" id="skills">
     <ul>
 
         <li><span>UI/UX</span><br>
@@ -86,7 +86,8 @@ My focus is on full-stack development, where I work with both frontend and backe
 
     </ul>
 </div>
-<div class="tab-contents" id="Projects">
+<div class="tab-contents" id="projects">
+
     <ul>
 
         <li>
@@ -121,7 +122,7 @@ My focus is on full-stack development, where I work with both frontend and backe
 
     </ul>
 </div>
-<div class="tab-contents" id="Education">
+<div class="tab-contents" id="education">
     <ul>
 
         <li>
@@ -261,21 +262,21 @@ My focus is on full-stack development, where I work with both frontend and backe
 
 
 <script>
+    function opentab(e, tabname){
+        var tablinks = document.getElementsByClassName("tab-links");
+        var tabcontents = document.getElementsByClassName("tab-contents");
 
-    var tablinks = document.getElementsByClassName("tab-links");
-    var tabcontents = document.getElementsByClassName("tab-contents");
-
-    function opentab(tabname){
-        for(tablink of tablinks){
+        for(let tablink of tablinks){
             tablink.classList.remove("active-link");
         }
-        for(tabcontent of tabcontents){
+
+        for(let tabcontent of tabcontents){
             tabcontent.classList.remove("active-tab");
         }
-        event.currentTarget.classList.add("active-link");
+
+        e.currentTarget.classList.add("active-link");
         document.getElementById(tabname).classList.add("active-tab");
     }
-
 </script>
 
 <script>
